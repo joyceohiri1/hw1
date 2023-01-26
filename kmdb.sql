@@ -1,3 +1,70 @@
+DROP TABLE IF EXISTS movies;
+
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY,
+    movies_id TEXT,
+    year_released INTEGER,
+    rating TEXT,
+    studio TEXT
+);
+
+DROP TABLE IF EXISTS studio;
+
+CREATE TABLE studio (
+    id INTEGER PRIMARY KEY,
+    movies TEXT,
+    studio_id TEXT
+);
+
+DROP TABLE IF EXISTS cast;
+
+CREATE TABLE cast (
+    id INTEGER PRIMARY KEY,
+    movies_id TEXT,
+    actor_name TEXT,
+    movie_character TEXT
+);
+
+DROP TABLE IF EXISTS actor; 
+
+CREATE TABLE actor (
+    id INTEGER PRIMARY KEY,
+    actor_name TEXT,
+    movie_character TEXT,
+    movies_id TEXT
+);
+
+INSERT INTO movies (movies_id, year_released, rating, studio)
+    VALUES ('Batman Begins', '2005', 'PG-13', 'Warner Bros'),
+    ('The Dark Knight', '2008', 'PG-13', 'Warner Bros'),
+    ('The Dark Knight Rises', '2012', 'PG-13', 'Warner Bros');
+
+SELECT * FROM movies;
+
+INSERT INTO cast (movies_id, actor_name, movie_character)
+VALUES ('Batman Begins', 'Christian Bale', 'Bruce Wayne'),
+('Batman Begins', 'Michael Caine', 'Alfred'),     
+('Batman Begins', 'Liam Neeson', 'Ras Al Ghul'),
+('Batman Begins', 'Katie Holmes', 'Rachel Dawes'),
+('Batman Begins', 'Gary Oldman', 'Commissioner Gordon'),
+('The Dark Knight', 'Christian Bale', 'Bruce Wayne'),
+('The Dark Knight', 'Heath Ledger', 'Joker'),
+('The Dark Knight', 'Aaron Eckhart', 'Harvey Dent'),
+('The Dark Knight', 'Michael Caine', 'Alfred'),
+('The Dark Knight', 'Maggie Gyllenhaal', 'Rachel Dawes'),
+('The Dark Knight Rises', 'Christian Bale', 'Bruce Wayne'),
+('The Dark Knight Rises', 'Gary Oldman', 'Commissioner Gordon'),
+('The Dark Knight Rises', 'Tom Hardy', 'Bane'),
+('The Dark Knight Rises', 'Joseph Gordan-Levitt', 'John Blake'),
+('The Dark Knight Rises', 'Anne Hathaway', 'Selina Kyle');
+
+SELECT * FROM cast;
+
+COMMIT;
+
+
+
+
 -- In this assignment, you'll be building the domain model, database 
 -- structure, and data for "KMDB" (the Kellogg Movie Database).
 -- The end product will be a report that prints the movies and the 
